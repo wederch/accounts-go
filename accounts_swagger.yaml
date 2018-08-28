@@ -1,0 +1,78 @@
+---
+swagger: "2.0"
+info:
+  description: "No description"
+  version: "1.0.0"
+  title: "Accounts API"
+  
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /accounts:
+    get:
+      summary: "Retrieve all accounts"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Account"
+    post:
+      summary: "Add a new account"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Account"
+      responses:
+        200:
+          description: "Status 200"
+  /accounts/{accountId}:
+    get:
+      summary: "Retrieve a single account"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Account"
+    delete:
+      summary: "Delete an account"
+      parameters: []
+      responses:
+        204:
+          description: "Status 204"
+    patch:
+      summary: "Edit an existing account"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Account"
+      responses:
+        200:
+          description: "Status 200"
+    parameters:
+    - name: "accountId"
+      in: "path"
+      required: true
+      type: "string"
+definitions:
+  Account:
+    type: "object"
+    properties:
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      birthdate:
+        type: "string"
+        format: "date"

@@ -1,0 +1,16 @@
+@baseurl = http://localhost:8080
+@resource = accounts
+
+###
+GET {{baseurl}}/
+###
+POST {{baseurl}}/
+###
+GET {{baseurl}}/{{resource}}
+###
+POST {{baseurl}}/{{resource}}
+###
+PATCH {{baseurl}}/{{resource}}
+###
+DELETE {{baseurl}}/{{resource}}
+###
