@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 // Account structure
@@ -13,6 +14,12 @@ type Account struct {
 }
 
 func main() {
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
 
 	accounts := &[]Account{
 		Account{"Salary"},
@@ -34,7 +41,7 @@ func main() {
 
 	http.HandleFunc("/", serveEmptyResponse)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(port, nil))
 }
 
 func serveEmptyResponse(w http.ResponseWriter, r *http.Request) {
