@@ -41,7 +41,7 @@ func main() {
 
 	http.HandleFunc("/", serveEmptyResponse)
 
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
 
 func serveEmptyResponse(w http.ResponseWriter, r *http.Request) {
