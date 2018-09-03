@@ -29,6 +29,7 @@ func main() {
 		Account{"FX"},
 		Account{"Funds"},
 		Account{"Strucutred Products"},
+		Account{"Sprint Review"},
 	}
 
 	http.HandleFunc("/accounts", func(w http.ResponseWriter, r *http.Request) {
